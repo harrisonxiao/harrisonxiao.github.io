@@ -1,17 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Harry (Youkang) Xiao</title>
   <style>
+    :root {
+      --bg-color: #ffffff;
+      --text-color: #111111;
+      --link-color: #0645AD;
+    }
+
     body {
       font-family: Georgia, serif;
       max-width: 800px;
       margin: 0 auto;
       padding: 2em;
       line-height: 1.6;
-      color: #111;
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      transition: background 0.3s, color 0.3s;
     }
 
     h1, h2 {
@@ -19,7 +27,7 @@
     }
 
     a {
-      color: #0645AD;
+      color: var(--link-color);
       text-decoration: none;
     }
 
@@ -42,7 +50,59 @@
       text-align: left;
     }
 
-    /* Mobile responsiveness */
+    /* Sticky nav */
+    .navbar {
+      position: sticky;
+      top: 0;
+      background: #f9f9f9;
+      padding: 10px;
+      z-index: 100;
+      text-align: center;
+      border-bottom: 1px solid #ccc;
+    }
+
+    .navbar a {
+      margin: 0 10px;
+      font-weight: bold;
+    }
+
+    .toggle-btn {
+      font-size: 14px;
+      margin-left: 10px;
+      cursor: pointer;
+      background: none;
+      border: 1px solid #aaa;
+      padding: 5px 10px;
+      border-radius: 5px;
+    }
+
+    /* Scroll-to-top button */
+    #topBtn {
+      display: none;
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      z-index: 99;
+      font-size: 16px;
+      background-color: #333;
+      color: white;
+      border: none;
+      padding: 10px 15px;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+
+    #topBtn:hover {
+      background-color: #555;
+    }
+
+    /* Dark mode */
+    .dark-mode {
+      --bg-color: #111111;
+      --text-color: #f0f0f0;
+      --link-color: #89b4f8;
+    }
+
     @media (max-width: 600px) {
       body {
         padding: 1em;
@@ -55,11 +115,6 @@
 
       h3 {
         font-size: 1rem;
-      }
-
-      img {
-        width: 100% !important;
-        height: auto !important;
       }
 
       .left-align div[style*="display: flex"] {
@@ -77,15 +132,23 @@
     }
   </style>
 </head>
-
 <body>
 
-  <h2>About</h2>
+  <div class="navbar">
+    <a href="#about">About</a>
+    <a href="#news">News</a>
+    <a href="#publications">Publications</a>
+    <a href="#research">Research</a>
+    <a href="#cv">CV</a>
+    <a href="#contact">Contact</a>
+    <button class="toggle-btn" onclick="toggleDarkMode()">🌙 Toggle Dark Mode</button>
+  </div>
+
+  <h2 id="about">About</h2>
   <div style="display: flex; align-items: flex-start; gap: 20px; flex-wrap: wrap;">
     <img src="image3.png" alt="Portrait of Youkang Xiao" style="width: 300px; height: auto; border-radius: 8px;">
     <div>
-      <p>
-        Hello! My name is Harry (Youkang) Xiao (肖友康). I am a senior at 
+      <p>Hello! My name is Harry (Youkang) Xiao (肖友康). I am a senior at 
         <a href="https://www.brandeis.edu" target="_blank">Brandeis University</a> 
         majoring in Psychology and Economics, with a minor in Women’s, Gender, and Sexuality Studies. 
         I will graduate in May 2025 and begin my doctoral studies (Ph.D.) in 
@@ -96,58 +159,50 @@
         <a href="https://bse.berkeley.edu/frank-c-worrell" target="_blank">Dr. Frank C. Worrell</a>.
       </p>
 
-      <p>
-        My research interests broadly center on identity development, the risk and resilience factors in shaping students’ mental health and academic outcomes, and the evaluation of culturally responsive interventions that promote equitable learning outcomes and healthy developmental trajectories—particularly among historically marginalized student populations.
-      </p>
+      <p>My research interests broadly center on identity development, the risk and resilience factors in shaping students’ mental health and academic outcomes, and the evaluation of culturally responsive interventions that promote equitable learning outcomes and healthy developmental trajectories—particularly among historically marginalized student populations.</p>
 
-      <p>
-        Please feel free to reach out if you'd like to connect or collaborate!
-      </p>
+      <p>Please feel free to reach out if you'd like to connect or collaborate!</p>
     </div>
   </div>
 
   <hr>
 
-  <h2>News</h2>
+  <h2 id="news">News</h2>
   <ul>
     <li><strong>March 2025</strong> — Inducted into <em>Phi Beta Kappa</em>, the nation’s oldest academic honor society</li>
     <li><strong>October 2024</strong> — Published blog article <em>The True Cost of Standardized Testing</em> on ASCD</li>
     <li><strong>August 2024</strong> — Joined the Student-Centered Religious Learning and Literacy (SCRoLL) Lab (PI: Ziva R. Hassenfeld, PhD)</li>
     <li><strong>August 2024</strong> — Presented “Beyond the Scores” at SciFest XIII at Brandeis</li>
-    <li><strong>June 2024</strong> — Accepted paper “An Analysis of the Educational Economics Dynamics of Chinese Immigrant Community in San Francisco in the Late 19th Century” to the 2024 International Symposium on Digital Economy and International Trade</li>
-    <li><strong>May 2024</strong> — Began research assistantship on the Color of Achievement project (PI: Tanishia Lavette Williams, PhD)</li>
-    <li><strong>April 2024</strong> — Joined the Social Interaction and Motivation (SIM) Lab at Brandeis University (PI: Jennifer Gutsell, PhD)</li>
+    <li><strong>June 2024</strong> — Accepted paper on Chinese immigrant educational economics (ISDEIT 358)</li>
+    <li><strong>May 2024</strong> — Joined the Color of Achievement project (PI: Tanishia Lavette Williams, PhD)</li>
+    <li><strong>April 2024</strong> — Joined the Social Interaction and Motivation Lab (PI: Jennifer Gutsell, PhD)</li>
     <li><strong>August 2023</strong> — Joined the Cohen Center for Modern Jewish Studies (PI: Leonard Saxe, PhD)</li>
-    <li><strong>May 2023</strong> — Presented “Racism on Social Media” at the 2023 Brandeis Undergraduate Research Symposium</li>
-    <li><strong>October 2022</strong> — Began research assistantship on the RaceB4Race project in partnership with Arizona State University’s Center for Medieval and Renaissance Studies (PI: Dorothy Kim, PhD)</li>
+    <li><strong>May 2023</strong> — Presented “Racism on Social Media” at the Brandeis Undergraduate Research Symposium</li>
+    <li><strong>October 2022</strong> — Joined the RaceB4Race project (PI: Dorothy Kim, PhD)</li>
   </ul>
 
   <hr>
 
   <div class="left-align">
-    <h2>Publications & Presentations</h2>
+    <h2 id="publications">Publications & Presentations</h2>
     <ul>
-      <li>Xiao, H. (2024, October). <em>The True Cost of Standardized Testing</em>. Association for Supervision and Curriculum Development, <em>Educational Leader</em>. <a href="https://ascd.org/blogs/the-true-cost-of-standardized-testing" target="_blank">Available here</a></li>
-      <li>Xiao, H., Wang, I., & Zhao, N. (accepted, June 2024). <em>An Analysis of the Educational Economics Dynamics of Chinese Immigrant Community in San Francisco in the Late 19th Century</em>. The 2024 International Symposium on Digital Economy and International Trade, ISDEIT 358.</li>
-      <li>Xiao, H. (2024, August 8). <em>“Beyond the Scores”: Mental Health and Academic Engagement in Standardized Testing for Students of Color</em>. Poster presented at SciFest XIII, Brandeis University.</li>
-      <li>Xiao, H. (2023, May 4). <em>“Racism on Social Media”: A Case Study Analysis of TikTok Cultures in the U.S.</em> Poster presented at the 2023 Brandeis Undergraduate Research Symposium.</li>
+      <li>Xiao, H. (2024, October). <em>The True Cost of Standardized Testing</em>. ASCD, <em>Educational Leader</em>. <a href="https://ascd.org/blogs/the-true-cost-of-standardized-testing" target="_blank">Available here</a></li>
+      <li>Xiao, H., Wang, I., & Zhao, N. (Accepted, June 2024). <em>An Analysis of the Educational Economics Dynamics...</em> ISDEIT 2024.</li>
+      <li>Xiao, H. (2024, August). <em>“Beyond the Scores”</em>. Poster presented at SciFest XIII, Brandeis University.</li>
+      <li>Xiao, H. (2023, May). <em>“Racism on Social Media”</em>. Poster presented at the Brandeis Undergraduate Research Symposium.</li>
     </ul>
   </div>
 
   <hr>
 
   <div class="left-align">
-    <h2>Research</h2>
+    <h2 id="research">Research</h2>
 
     <div style="display: flex; align-items: flex-start; gap: 20px; margin-bottom: 40px;">
       <img src="image4.png" alt="Beyond the Scores 2.0 Poster" style="width: 300px; height: auto; border-radius: 8px;">
       <div>
         <h3>2025 — Beyond the Scores 2.0: Identity, Resilience, and Standardized Testing</h3>
-        <p>
-          Building on the original <em>Beyond the Scores</em> project, this study investigates how socioeconomic status shapes minoritized college students’ access to standardized test preparation and its psychological and academic consequences. 
-          Integrating qualitative interviews with multiple regression and structural equation modeling, we examine how resilience and ethnic-racial identity mediate the effects of socioeconomic disadvantage on psychological distress and academic engagement. 
-          Findings aim to inform culturally responsive, trauma-informed interventions that promote positive developmental outcomes for multiply marginalized students.
-        </p>
+        <p>This study investigates how socioeconomic status influences standardized test preparation access and psychological distress among minoritized students, highlighting the mediating roles of resilience and ethnic-racial identity.</p>
       </div>
     </div>
 
@@ -155,11 +210,7 @@
       <img src="image1.png" alt="Beyond the Scores Poster" style="width: 300px; height: auto; border-radius: 8px;">
       <div>
         <h3>2024 — Beyond the Scores 1.0: Mental Health and Academic Engagement in Standardized Testing</h3>
-        <p>
-          This mixed-methods project explores the mental health and academic engagement of students of color in the context of standardized testing. 
-          Combining validated survey scales with in-depth interviews, we examined the emotional, psychological, and financial stressors associated with test preparation, as well as perceptions of test fairness. 
-          This work highlights the need for more equitable assessment practices and student-centered education policy reforms.
-        </p>
+        <p>This mixed-methods project explored students of color’s mental health and academic engagement during standardized testing, combining surveys and interviews to inform equitable assessment practices.</p>
       </div>
     </div>
 
@@ -167,26 +218,19 @@
       <img src="image2.png" alt="TikTok Racism Poster" style="width: 300px; height: auto; border-radius: 8px;">
       <div>
         <h3>2022–2023 — Racism on Social Media: A TikTok Case Study</h3>
-        <p>
-          This study investigates the intersection of race, gender, and online harm by analyzing how marginalized youth experience racism on TikTok. 
-          Using a Python-based detection model, we identified patterns of hate speech, slurs, and microaggressions across 1,000 videos. 
-          Qualitative interviews further explored students’ experiences with digital harassment, perceptions of algorithmic bias, and coping strategies. 
-          Findings emphasize the psychological toll of online racism and the urgent need for equity-driven content moderation policies.
-        </p>
+        <p>Using machine learning and qualitative interviews, this project identified racist content and examined the coping mechanisms of marginalized youth facing online harassment.</p>
       </div>
     </div>
   </div>
 
   <hr>
 
-  <h2>CV</h2>
+  <h2 id="cv">CV</h2>
   <p>
-    <a href="Youkang Xiao_CV_0425.pdf" target="_blank" download>
-      Click here to view my CV
-    </a>
+    <a href="Youkang Xiao_CV_0425.pdf" target="_blank" download>Click here to view my CV</a>
   </p>
 
-  <h2>Contact</h2>
+  <h2 id="contact">Contact</h2>
   <ul>
     <li><a href="mailto:harryxiao@berkeley.edu">Email</a></li>
     <li><a href="https://www.linkedin.com/in/harry-xiao-youkang" target="_blank">LinkedIn</a></li>
@@ -195,6 +239,23 @@
     <li><a href="https://www.xiaohongshu.com/user/profile/5ef9d060000000000101e2f9" target="_blank">Red Note (小红书)</a></li>
   </ul>
 
+  <!-- Back to Top Button -->
+  <button onclick="scrollToTop()" id="topBtn" title="Go to top">↑ Top</button>
+
+  <script>
+    function toggleDarkMode() {
+      document.body.classList.toggle("dark-mode");
+    }
+
+    const topBtn = document.getElementById("topBtn");
+    window.onscroll = function () {
+      topBtn.style.display = window.scrollY > 400 ? "block" : "none";
+    };
+
+    function scrollToTop() {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+  </script>
 </body>
 </html>
 
